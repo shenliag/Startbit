@@ -16,7 +16,9 @@ namespace startbit {
         //% block="White"
         White = 0x05,
         //% block="None"
-        None = 0x06
+        None = 0x06,
+	//% block="Yellow"
+	Yellow = 0x07	    
     }
 
     export enum startbit_lineFollower {
@@ -894,7 +896,7 @@ namespace startbit {
 
 
     /* LED Drive values */
-    const LED_DRIVE_100MA = 0;
+    const LED_DRIVE_100MA = 1;
 
     /* ALS Gain (AGAIN) values */
     const AGAIN_4X = 1;
@@ -1110,14 +1112,14 @@ namespace startbit {
         let g = i2cread(APDS9960_GDATAL) + i2cread(APDS9960_GDATAH) * 256;
         let b = i2cread(APDS9960_BDATAL) + i2cread(APDS9960_BDATAH) * 256;
 
-        // serial.writeNumber(c);
-        // serial.writeLine("->ccc");
-        // serial.writeNumber(r);
-        // serial.writeLine("->red");
-        // serial.writeNumber(g);
-        // serial.writeLine("->green");
-        // serial.writeNumber(b);
-        // serial.writeLine("->blue");
+         serial.writeNumber(c);
+         serial.writeLine("->ccc");
+         serial.writeNumber(r);
+         serial.writeLine("->red");
+         serial.writeNumber(g);
+         serial.writeLine("->green");
+         serial.writeNumber(b);
+         serial.writeLine("->blue");
 
         if (r > red_wb)
             r = red_wb;
