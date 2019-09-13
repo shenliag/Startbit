@@ -1161,7 +1161,7 @@ namespace startbit {
             else if (hsv > 120 && hsv < 170) {
                 t = startbit_Colors.Green;
             }
-            else if (hsv > 210 && hsv < 270) {
+            else if (hsv > 190 && hsv < 250) {
                 t = startbit_Colors.Blue;
             }
         }
