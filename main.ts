@@ -1112,9 +1112,9 @@ namespace startbit {
         let r = i2cread(APDS9960_RDATAL) + i2cread(APDS9960_RDATAH) * 256;
         let g = i2cread(APDS9960_GDATAL) + i2cread(APDS9960_GDATAH) * 256;
         let b = i2cread(APDS9960_BDATAL) + i2cread(APDS9960_BDATAH) * 256;
-	 r = Math.map(r, 0, 7184, 0, 255);
-	 g = Math.map(g, 0, 13369, 0, 255);
-	 b = Math.map(b, 0, 18254, 0, 255);
+	 r = Math.round(r/28);
+	 g = Math.round(g/52);
+	 b = Math.round(b/71);
 	
 
          serial.writeNumber(c);
@@ -1126,40 +1126,43 @@ namespace startbit {
          serial.writeNumber(b);
          serial.writeLine("->blue");
 
-        if (r > red_wb)
-            r = red_wb;
-        if (g > green_wb)
-            g = green_wb;
-        if (b > blue_wb)
-            b = blue_wb;
+        //if (r > red_wb)
+        //    r = red_wb;
+        //if (g > green_wb)
+        //    g = green_wb;
+        //if (b > blue_wb)
+        //    b = blue_wb;
 
-        r = Math.round(mapRGB(r, 0, red_wb, 0, 255));
-        g = Math.round(mapRGB(g, 0, green_wb, 0, 255));
-        b = Math.round(mapRGB(b, 0, blue_wb, 0, 255));
+        //r = Math.round(mapRGB(r, 0, red_wb, 0, 255));
+        //g = Math.round(mapRGB(g, 0, green_wb, 0, 255));
+        //b = Math.round(mapRGB(b, 0, blue_wb, 0, 255));
         // serial.writeNumber(r);
         // serial.writeLine("->rred");
         // serial.writeNumber(g);
         // serial.writeLine("->ggreen");
         // serial.writeNumber(b);
         // serial.writeLine("->bblue");
-         let hsv = rgb2hue(r, g, b);
-        // serial.writeNumber(hsv);
-        // serial.writeLine("->hsv");
+        let hsv = rgb2hue(r, g, b);
+         serial.writeNumber(hsv);
+         serial.writeLine("->hsv");
         let t = startbit_Colors.None;
-        if (c > 2200 && r > 65 && g > 65 && b > 65) {
+        if (c > 10000 && r > 65 && g > 65 && b > 65) {
             t = startbit_Colors.White;
         }
         else if (c > 800) {
             if (hsv < 8 || hsv > 350)
                 t = startbit_Colors.Red;
-            else if (hsv > 60 && hsv < 170) {
+	    else if (hsv > 70 && hsv < 110) {
+		t = startbit_Colors.Yellow;
+	    }
+            else if (hsv > 120 && hsv < 170) {
                 t = startbit_Colors.Green;
             }
-            else if (hsv > 210 && hsv < 230) {
+            else if (hsv > 210 && hsv < 270) {
                 t = startbit_Colors.Blue;
             }
         }
-        else if (c > 200 && r > 10 && g > 7 && b > 7 && r < 16.5 && g < 15 && b < 14) {
+        else {
             t = startbit_Colors.Black;
         }
         return (color == t);
