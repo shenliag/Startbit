@@ -16,9 +16,9 @@ namespace startbit {
         //% block="White"
         White = 0x05,
         //% block="Yellow"
-	Yellow = 0x07,
+	Yellow = 0x06,
 	//% block="None"
-        None = 0x06
+        None = 0x07
     }
 
     export enum startbit_lineFollower {
@@ -1112,6 +1112,10 @@ namespace startbit {
         let r = i2cread(APDS9960_RDATAL) + i2cread(APDS9960_RDATAH) * 256;
         let g = i2cread(APDS9960_GDATAL) + i2cread(APDS9960_GDATAH) * 256;
         let b = i2cread(APDS9960_BDATAL) + i2cread(APDS9960_BDATAH) * 256;
+	 r=r/28;
+	 g=g/52;
+	 b=b/71;
+	
 
          serial.writeNumber(c);
          serial.writeLine("->ccc");
