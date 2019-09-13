@@ -997,7 +997,7 @@ namespace startbit {
         let hue = 0;
         let segment = 0;
         let shift = 0;
-        if (c == 0)
+        if (c < 1)
             return 0;
         if ((r > g) && (r > b)) {
             segment = (60.0 * (g - b)) / c;
