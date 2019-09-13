@@ -185,11 +185,12 @@ namespace startbit {
     //% weight=100 blockId=startbit_Init block="Initialize Startbit"
     export function startbit_Init() {
         startbit_initRGBLight();
-        serial.redirect(
+        /*serial.redirect(
             SerialPin.P12,
             SerialPin.P8,
             BaudRate.BaudRate115200);
-
+	*/
+	serial.redirectToUSB();
         basic.forever(() => {
             getHandleCmd();
         });
