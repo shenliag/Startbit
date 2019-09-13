@@ -1119,7 +1119,7 @@ namespace startbit {
 	 g = Math.round(g/52);
 	 b = Math.round(b/71);
 	
-
+/*
          serial.writeNumber(c);
          serial.writeLine("->ccc");
          serial.writeNumber(r);
@@ -1128,7 +1128,7 @@ namespace startbit {
          serial.writeLine("->green");
          serial.writeNumber(b);
          serial.writeLine("->blue");
-
+*/
         //if (r > red_wb)
         //    r = red_wb;
         //if (g > green_wb)
@@ -1146,19 +1146,19 @@ namespace startbit {
         // serial.writeNumber(b);
         // serial.writeLine("->bblue");
         let hsv = rgb2hue(r, g, b);
-         serial.writeNumber(hsv);
-         serial.writeLine("->hsv");
+         //serial.writeNumber(hsv);
+         //serial.writeLine("->hsv");
         let t = startbit_Colors.None;
         if (c > 10000 && r > 65 && g > 65 && b > 65) {
             t = startbit_Colors.White;
         }
         else if (c > 800) {
-            if (hsv < 30 || hsv > 340)
+            if (hsv < 7 || hsv > 340)
                 t = startbit_Colors.Red;
-	    else if (hsv > 70 && hsv < 110) {
+	    else if (hsv > 15 && hsv < 40) {
 		t = startbit_Colors.Yellow;
 	    }
-            else if (hsv > 120 && hsv < 170) {
+            else if (hsv > 110 && hsv < 170) {
                 t = startbit_Colors.Green;
             }
             else if (hsv > 190 && hsv < 250) {
