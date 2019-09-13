@@ -1003,6 +1003,9 @@ namespace startbit {
             segment = (60.0 * (g - b)) / dt;
             if (segment < 0)
                 hue = segment + 360;
+		else
+			hue = segment;
+		
         }
         else if ((g > b) && (g > r)) {
             segment = (60.0 * (b - r)) / dt;
