@@ -1112,9 +1112,9 @@ namespace startbit {
         let r = i2cread(APDS9960_RDATAL) + i2cread(APDS9960_RDATAH) * 256;
         let g = i2cread(APDS9960_GDATAL) + i2cread(APDS9960_GDATAH) * 256;
         let b = i2cread(APDS9960_BDATAL) + i2cread(APDS9960_BDATAH) * 256;
-	 r = r / 28;
-	 g = g / 52;
-	 b = b / 71;
+	 r = Math.map(r, 0, 7184, 0, 255);
+	 g = Math.map(g, 0, 13369, 0, 255);
+	 b = Math.map(b, 0, 18254, 0, 255);
 	
 
          serial.writeNumber(c);
