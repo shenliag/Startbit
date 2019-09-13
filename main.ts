@@ -15,10 +15,10 @@ namespace startbit {
         Black = 0x04,
         //% block="White"
         White = 0x05,
-        //% block="None"
-        None = 0x06,
-	//% block="Yellow"
-	Yellow = 0x07	    
+        //% block="Yellow"
+	Yellow = 0x07,
+	//% block="None"
+        None = 0x06
     }
 
     export enum startbit_lineFollower {
