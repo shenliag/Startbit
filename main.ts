@@ -1150,7 +1150,7 @@ namespace startbit {
             t = startbit_Colors.White;
         }
         else if (c > 800) {
-            if (hsv < 8 || hsv > 350)
+            if (hsv < 30 || hsv > 340)
                 t = startbit_Colors.Red;
 	    else if (hsv > 70 && hsv < 110) {
 		t = startbit_Colors.Yellow;
