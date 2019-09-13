@@ -993,23 +993,23 @@ namespace startbit {
     function rgb2hue(r: number, g: number, b: number): number {
         let max = Math.max(r, Math.max(g, b))
         let min = Math.min(r, Math.min(g, b))
-        let c = max - min;
+        let dt = max - min;
         let hue = 0;
         let segment = 0;
-        let shift = 0;
-        if (c < 1)
+        //let shift = 0;
+        if (dt < 1)
             return 0;
         if ((r > g) && (r > b)) {
-            segment = (60.0 * (g - b)) / c;
+            segment = (60.0 * (g - b)) / dt;
             if (segment < 0)
                 hue = segment + 360;
         }
         else if ((g > b) && (g > r)) {
-            segment = (60.0 * (b - r)) / c;
+            segment = (60.0 * (b - r)) / dt;
             hue = segment + 120;
         }
         else if ((b > g) && (b > r)) {
-            segment = (60.0 * (r - g)) / c;
+            segment = (60.0 * (r - g)) / dt;
             hue = segment + 240;
         }
         return hue;
