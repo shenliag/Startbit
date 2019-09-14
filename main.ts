@@ -1528,6 +1528,11 @@ namespace startbit {
     /**
      * Returns the enumeration of the command type, which can be compared with this module after obtaining the bluetooth command type sent by the mobile phone APP.
      */
+ //% weight=57 blockId=startbit_getColorType block="Color type %type"
+    export function startbit_getColorType(type: startbit_Colors): number {
+        return type;
+    }
+	
     //% weight=57 blockId=startbit_getBluetoothCmdtype block="Bluetooth command type %type"
     export function startbit_getBluetoothCmdtype(type: startbit_CmdType): number {
         return type;
