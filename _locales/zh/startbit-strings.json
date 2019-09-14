@@ -51,7 +51,7 @@
 	"startbit.startbit_getArgs|block":"获取蓝牙命令|%str|参数 %index",
 	"startbit.startbit_getBluetoothCmdtype|block":"蓝牙命令类型 %type",
 	"startbit.startbit_getRunCarType|block":"车辆行进命令类型 %type",
-	"startbit.startbit_CmdType.NO_COMMAND|block":"无效的命令",
+	"startbit.startbit_CmdType.NO_COMMAND|block":"无效命令",
 	"startbit.startbit_CmdType.CAR_RUN|block":"车辆行进命令",
 	"startbit.startbit_CmdType.ROBOT_RUN|block":"机器人控制命令",
 	"startbit.startbit_CmdType.SERVO|block":"舵机控制命令",
