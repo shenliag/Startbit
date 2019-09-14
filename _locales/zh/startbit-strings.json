@@ -28,6 +28,7 @@
 	"startbit.startbit_clearLight|block":"关闭彩灯",
 	"startbit.startbit_setBrightness|block":"设置RGB灯亮度 %brightness",
 	"startbit.setstartbitRun|block":"设置startbit %runType",
+	"startbit.startbit_getColorType|block":"颜色是 %type",
 	"startbit.startbit_Colors.Red|block":"红色",
 	"startbit.startbit_Colors.Green|block":"绿色",
 	"startbit.startbit_Colors.Blue|block":"蓝色",
