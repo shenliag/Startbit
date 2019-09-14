@@ -5,7 +5,7 @@
 namespace startbit {
 
     export enum startbit_Colors {
-        //% block="Red"
+	//% block="Red"
         Red = 0x01,
         //% block="Green"
         Green = 0x02,
@@ -14,11 +14,11 @@ namespace startbit {
         //% block="Black"
         Black = 0x04,
         //% block="White"
-        White = 0x05,
-        //% block="Yellow"
+	White = 0x05,
+	//% block="Yellow"
 	Yellow = 0x06,
 	//% block="None"
-        None = 0x07
+	None = 0x07
     }
 
     export enum startbit_lineFollower {
@@ -1115,9 +1115,9 @@ namespace startbit {
         let r = i2cread(APDS9960_RDATAL) + i2cread(APDS9960_RDATAH) * 256;
         let g = i2cread(APDS9960_GDATAL) + i2cread(APDS9960_GDATAH) * 256;
         let b = i2cread(APDS9960_BDATAL) + i2cread(APDS9960_BDATAH) * 256;
-	 r = Math.round(r/28);
-	 g = Math.round(g/52);
-	 b = Math.round(b/71);
+	r = Math.round(r/28);
+	g = Math.round(g/52);
+	b = Math.round(b/71);
 	
 /*
          serial.writeNumber(c);
@@ -1154,16 +1154,13 @@ namespace startbit {
         }
         else if (c > 800) {
             if (hsv < 7 || hsv > 340)
-                t = startbit_Colors.Red;
-	    else if (hsv > 15 && hsv < 40) {
+		t = startbit_Colors.Red;
+            else if (hsv > 15 && hsv < 40)
 		t = startbit_Colors.Yellow;
-	    }
-            else if (hsv > 110 && hsv < 170) {
+            else if (hsv > 110 && hsv < 170)
                 t = startbit_Colors.Green;
-            }
-            else if (hsv > 190 && hsv < 250) {
+            else if (hsv > 190 && hsv < 250)
                 t = startbit_Colors.Blue;
-            }
         }
         else {
             t = startbit_Colors.Black;
