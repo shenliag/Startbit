@@ -1135,7 +1135,6 @@ namespace startbit {
         //    g = green_wb;
         //if (b > blue_wb)
         //    b = blue_wb;
-
         //r = Math.round(mapRGB(r, 0, red_wb, 0, 255));
         //g = Math.round(mapRGB(g, 0, green_wb, 0, 255));
         //b = Math.round(mapRGB(b, 0, blue_wb, 0, 255));
