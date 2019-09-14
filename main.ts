@@ -1110,7 +1110,7 @@ namespace startbit {
 	 *  Color sensor return the color.
 	 */
     //% weight=86 blockId=startbit_checkCurrentColor block="Current color %color"
-    export function startbit_checkCurrentColor(color: startbit_Colors): number {
+    export function startbit_checkCurrentColor(): number {
         let c = i2cread(APDS9960_CDATAL) + i2cread(APDS9960_CDATAH) * 256;
         let r = i2cread(APDS9960_RDATAL) + i2cread(APDS9960_RDATAH) * 256;
         let g = i2cread(APDS9960_GDATAL) + i2cread(APDS9960_GDATAH) * 256;
