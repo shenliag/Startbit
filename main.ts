@@ -1660,4 +1660,9 @@ namespace startbit {
     export function startbit_getMacAddress(): string {
         return macStr + "$";
     }
+
+    //% weight=45 blockId=startbit_Notice block="play sound notice"
+    export function startbit_Notice(nid: number) {
+        return ;
+    }
 }
