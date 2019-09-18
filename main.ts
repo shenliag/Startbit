@@ -1160,10 +1160,10 @@ namespace startbit {
         BaudRate.BaudRate115200);
 	    
         let t = startbit_Colors.None;
-        if (c > 10000 && r > 65 && g > 65 && b > 65) {
+        if (c > 28000 && r > 65 && g > 65 && b > 65) {
             t = startbit_Colors.White;
         }
-        else if (c > 800) {
+        else if (c > 5000) {
             if (hsv < 6 || hsv > 340)
 		t = startbit_Colors.Red;
             else if (hsv > 6 && hsv < 40)
