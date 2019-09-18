@@ -1147,9 +1147,12 @@ namespace startbit {
         let hsv = rgb2hue(r, g, b);
 	
 	serial.redirectToUSB();
-	
+	serial.writeNumber(c);
+	serial.writeLine("->c");
 	serial.writeNumber(hsv);
 	serial.writeLine("->hsv");
+	 
+	pause(10);
 	    
 	serial.redirect(
 	SerialPin.P12,
