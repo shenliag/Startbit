@@ -185,11 +185,24 @@ namespace startbit {
     //% weight=100 blockId=startbit_Init block="Initialize Startbit"
     export function startbit_Init() {
         startbit_initRGBLight();
+        //add for audio init
         serial.redirect(
-            SerialPin.P12,
-            SerialPin.P8,
-            BaudRate.BaudRate115200);
-	    
+        SerialPin.P13,
+        SerialPin.P14,
+        BaudRate.BaudRate9600);
+        let aubuf = pins.createBuffer(5);
+        buf[0] = 0xAA;
+        buf[1] = 0x13;
+        buf[2] = 0x01;
+        buf[3] = 0x1e;
+        buf[4] = 0xdc;
+        serial.writeBuffer(buf);
+        basic.pause(100);
+
+        serial.redirect(
+        SerialPin.P12,
+        SerialPin.P8,
+        BaudRate.BaudRate115200);   
 	//serial.redirectToUSB();
         basic.forever(() => {
             getHandleCmd();
@@ -1675,6 +1688,23 @@ namespace startbit {
 
     //% weight=45 blockId=startbit_Notice block="play sound notice"
     export function startbit_Notice(nid: number) {
-        return ;
+        serial.redirect(
+        SerialPin.P13,
+        SerialPin.P14,
+        BaudRate.BaudRate9600);
+        let aubuf = pins.createBuffer(6);
+        buf[0] = 0xAA;
+        buf[1] = 0x07;
+        buf[2] = 0x02;
+        buf[3] = 0x00;
+        buf[4] = nid & 0xff;
+        buf[5] = buf[0]+buf[1]+buf[2]+buf[3]+buf[4];
+        serial.writeBuffer(buf);
+        basic.pause(100);
+
+        serial.redirect(
+        SerialPin.P12,
+        SerialPin.P8,
+        BaudRate.BaudRate115200); 
     }
 }
