@@ -1152,7 +1152,7 @@ namespace startbit {
 	serial.writeNumber(hsv);
 	serial.writeLine("->hsv");
 	 
-	pause(10);
+	basic.pause(10);
 	    
 	serial.redirect(
 	SerialPin.P12,
