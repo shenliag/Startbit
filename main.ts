@@ -1145,8 +1145,17 @@ namespace startbit {
         // serial.writeNumber(b);
         // serial.writeLine("->bblue");
         let hsv = rgb2hue(r, g, b);
+	
+	serial.redirectToUSB();
+	
 	serial.writeNumber(hsv);
 	serial.writeLine("->hsv");
+	    
+	serial.redirect(
+	SerialPin.P12,
+        SerialPin.P8,
+        BaudRate.BaudRate115200);
+	    
         let t = startbit_Colors.None;
         if (c > 10000 && r > 65 && g > 65 && b > 65) {
             t = startbit_Colors.White;
