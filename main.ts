@@ -1689,12 +1689,21 @@ namespace startbit {
 
     //% weight=45 blockId=startbit_Notice block="play sound notice"
     export function startbit_Notice(nid: number) {
-        basic.pause(100);
-	    
+	//wait com send over
+        basic.pause(200);
+	//change pin
 	serial.redirect(
         SerialPin.P13,
         SerialPin.P14,
         BaudRate.BaudRate9600);
+	//send stop
+	let stopbuf = pins.createBuffer(4);
+	stopbuf[0] = 0xAA;
+	stopbuf[1] = 0x04;
+	stopbuf[2] = 0x00;
+	stopbuf[3] = 0xAE;
+	serial.writeBuffer(stopbuf);
+	//send play
         let aubuf = pins.createBuffer(6);
         aubuf[0] = 0xAA;
         aubuf[1] = 0x07;
@@ -1703,8 +1712,9 @@ namespace startbit {
         aubuf[4] = nid & 0xff;
         aubuf[5] = aubuf[0]+aubuf[1]+aubuf[2]+aubuf[3]+aubuf[4];
         serial.writeBuffer(aubuf);
-        basic.pause(100);
-
+	//wait send over
+        basic.pause(200);
+	//change pin back
         serial.redirect(
         SerialPin.P12,
         SerialPin.P8,
