@@ -1689,7 +1689,9 @@ namespace startbit {
 
     //% weight=45 blockId=startbit_Notice block="play sound notice"
     export function startbit_Notice(nid: number) {
-        serial.redirect(
+        basic.pause(100);
+	    
+	serial.redirect(
         SerialPin.P13,
         SerialPin.P14,
         BaudRate.BaudRate9600);
